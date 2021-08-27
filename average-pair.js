@@ -1,5 +1,5 @@
 // add whatever parameters you deem necessary
-/* 
+/**
 function should accept an ordered array and a target average number, 
 determin whether there is a pair of values in array that average to the target average number.
 returns a boolean
@@ -15,13 +15,14 @@ function averagePair(nums, average) {
     let left = 0;
     let right = nums.length - 1;
     while (right > left) {
-        if ((nums[left] + nums[right]) / 2 > average) {
+        let curAvg = (nums[left] + nums[right]) / 2;
+        if (curAvg > average) {
             right -= 1;
         }
-        if ((nums[left] + nums[right]) / 2 < average) {
+        if (curAvg < average) {
             left += 1;
         }
-        if ((nums[left] + nums[right]) / 2 === average) {
+        if (curAvg === average) {
             return true;
         }
     }

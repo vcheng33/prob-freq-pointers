@@ -11,16 +11,16 @@ function canConstructWord(word, randomLetters) {
         return false;
     }
     // create two variables that call the countLetters function and return an object
-    let wordCounter = countLetters(word);
-    let randomLettersCounter = countLetters(randomLetters);
+    const wordCounter = countLetters(word);
+    const randomLettersCounter = countLetters(randomLetters);
     console.log("wordCounter", wordCounter);
     console.log("randomLettersCounter", randomLettersCounter);
-    
+
     // create a loop
     for (let key in wordCounter) {
         // Object.key() of object 1 and see if it exists in the second object. 
         // if not, return false
-        if (!randomLettersCounter[key]) {
+        if (randomLettersCounter[key] === undefined) {
             return false;
         }
 
@@ -32,10 +32,10 @@ function canConstructWord(word, randomLetters) {
     }
     // at the end of the loop, if everything is good, return true
     return true;
-    
+
 }
 
-// create this frequency counter that will take a string and create an object with each unique letter and the number of times that letter appears
+/** create this frequency counter that will take a string and create an object with each unique letter and the number of times that letter appears*/
 function countLetters(string) {
     let counter = {};
 
@@ -43,6 +43,6 @@ function countLetters(string) {
         let currentCount = counter[character] || 0;
         counter[character] = currentCount + 1;
     }
-    
+
     return counter;
 }
